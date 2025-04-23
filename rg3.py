@@ -8,8 +8,12 @@ def render() :
     import matplotlib
     import datetime
     from sklearn.metrics.pairwise import euclidean_distances
+    import matplotlib.font_manager as fm
 
-    matplotlib.rc('font', family='Malgun Gothic')
+    font_path = "fonts/NanumGothicCoding.ttf"  # 상대 경로
+    font_prop = fm.FontProperties(fname=font_path, size=16, weight='bold')
+    plt.rcParams['font.family'] = font_prop.get_name()
+    plt.rcParams['axes.unicode_minus'] = False
 
     # 모델 & 데이터 로드
     with open('rg3_xgb_model.pkl', 'rb') as f:
@@ -151,17 +155,17 @@ def render() :
 
                     defect_counts = labeled_data[(labeled_data['PassOrFail'] == 'N') & (labeled_data['Reason'].notnull())]['Reason'].value_counts(normalize=True) * 100
 
-                    st.markdown("<div style='background-color:#f0f0f0;padding:5px 16px;border-radius:10px; margin-top: 80px; margin-bottom: 20px;'><b style='font-size:20px;'>불량 원인 분포</b></div>", unsafe_allow_html=True)
+                    st.markdown("<div style='background-color:#f0f0f0;padding:5px 16px;border-radius:10px; margin-top: 45px; margin-bottom: 20px;'><b style='font-size:20px;'>불량 원인 분포</b></div>", unsafe_allow_html=True)
                     fig, ax = plt.subplots()
                     bars = ax.barh(defect_counts.index, defect_counts.values, color='#c1f0c1')
                     ax.set_xlim(0, 100)
-                    ax.set_xlabel('%', fontsize=14)
-                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold')
+                    ax.set_xlabel('%', fontsize=14, fontproperties=font_prop)
+                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     for bar in bars:
                         width = bar.get_width()
                         ax.text(width + 1, bar.get_y() + bar.get_height()/2,
-                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold')
+                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     st.pyplot(fig)
 
@@ -324,12 +328,12 @@ def render() :
                     fig, ax = plt.subplots()
                     bars = ax.barh(defect_counts.index, defect_counts.values, color='#c1f0c1')
                     ax.set_xlim(0, 100)
-                    ax.set_xlabel('%', fontsize=14)
-                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold')
+                    ax.set_xlabel('%', fontsize=14, fontproperties=font_prop)
+                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     for bar in bars:
                         width = bar.get_width()
                         ax.text(width + 1, bar.get_y() + bar.get_height()/2,
-                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold')
+                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     st.pyplot(fig)
