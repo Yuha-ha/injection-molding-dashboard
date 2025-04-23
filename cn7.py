@@ -10,7 +10,7 @@ def render() :
     import matplotlib.font_manager as fm
 
     font_path = "fonts/NanumGothicCoding.ttf"  # 상대 경로
-    font_prop = fm.FontProperties(fname=font_path)
+    font_prop = fm.FontProperties(fname=font_path, size=16, weight='bold')
     plt.rcParams['font.family'] = font_prop.get_name()
     plt.rcParams['axes.unicode_minus'] = False
 
