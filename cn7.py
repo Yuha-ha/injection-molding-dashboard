@@ -177,13 +177,13 @@ def render() :
                     fig, ax = plt.subplots()
                     bars = ax.barh(defect_counts.index, defect_counts.values, color='#c1f0c1')
                     ax.set_xlim(0, 100)
-                    ax.set_xlabel('%', fontsize=14)
+                    ax.set_xlabel('%', fontsize=14, fontproperties=font_prop)
                     ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold')
 
                     for bar in bars:
                         width = bar.get_width()
                         ax.text(width + 1, bar.get_y() + bar.get_height()/2,
-                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold')
+                                f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     st.pyplot(fig)
 
