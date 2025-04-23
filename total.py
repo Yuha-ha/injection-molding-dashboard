@@ -115,7 +115,7 @@ def render() :
                     </div>
                 </div>
             </div>
-        """ % get_base64_image("images\우진 2호기.png"), unsafe_allow_html=True)
+        """ % get_base64_image("images/woojin_2ho.png"), unsafe_allow_html=True)
 
     with col5:
         # 하루 생산량 설정
