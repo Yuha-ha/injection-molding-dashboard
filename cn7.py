@@ -372,10 +372,9 @@ def render() :
                     st.plotly_chart(fig, use_container_width=True)
 
                 with col_reason:
-                    # 불량 원인 분포
+                    st.markdown("<div style='background-color:#f0f0f0;padding:5px 16px;border-radius:10px; margin-top: 20px; margin-bottom: 20px;'><b style='font-size:20px;'>불량 원인 분포</b></div>", unsafe_allow_html=True)
                     defect_counts = labeled_data[(labeled_data['PassOrFail'] == 'N') & (labeled_data['Reason'].notnull())]['Reason'].value_counts(normalize=True) * 100
 
-                    st.markdown("<div style='background-color:#f0f0f0;padding:5px 16px;border-radius:10px; margin-top: 45px; margin-bottom: 20px;'><b style='font-size:20px;'>불량 원인 분포</b></div>", unsafe_allow_html=True)
                     fig, ax = plt.subplots()
                     bars = ax.barh(defect_counts.index, defect_counts.values, color='#c1f0c1')
                     ax.set_xlim(0, 100)
@@ -386,3 +385,5 @@ def render() :
                         width = bar.get_width()
                         ax.text(width + 1, bar.get_y() + bar.get_height()/2,
                                 f'{width:.2f}%', va='center', color='black', fontsize=16, fontweight='bold', fontproperties=font_prop)
+
+                    st.pyplot(fig)
