@@ -6,3 +6,5 @@ matplotlib
 plotly
 scikit-learn
 xgboost
+# ✅ 한글 폰트용
+wget
