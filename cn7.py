@@ -178,7 +178,7 @@ def render() :
                     bars = ax.barh(defect_counts.index, defect_counts.values, color='#c1f0c1')
                     ax.set_xlim(0, 100)
                     ax.set_xlabel('%', fontsize=14, fontproperties=font_prop)
-                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold')
+                    ax.set_yticklabels(defect_counts.index, fontsize=16, fontweight='bold', fontproperties=font_prop)
 
                     for bar in bars:
                         width = bar.get_width()
