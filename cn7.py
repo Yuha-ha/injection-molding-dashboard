@@ -136,6 +136,22 @@ def render() :
                         st.markdown(f"<p style='font-size:20px;margin-left:10px;'>{i}. {feat}</p>", unsafe_allow_html=True)
                     st.markdown("</div>", unsafe_allow_html=True)
 
+                import matplotlib.font_manager as fm
+                import os
+
+                # ✅ 한글 폰트 다운로드 (처음 실행 시만)
+                font_path = "/tmp/NanumGothic.ttf"
+                if not os.path.exists(font_path):
+                    import subprocess
+                    subprocess.run(
+                        ["wget", "-O", font_path, "https://github.com/naver/nanumfont/blob/master/ttf/NanumGothic.ttf?raw=true"]
+                    )
+
+                # ✅ matplotlib에 폰트 설정
+                font_prop = fm.FontProperties(fname=font_path)
+                plt.rcParams['font.family'] = font_prop.get_name()
+                plt.rcParams['axes.unicode_minus'] = False
+
                 with top_col2:
                     st.markdown("<div style='background-color:#f0f0f0;padding:5px 16px;border-radius:10px; margin-top: 20px; margin-bottom: 20px; '><b style='font-size:20px;'>누적 불량률</b></div>", unsafe_allow_html=True)
 
