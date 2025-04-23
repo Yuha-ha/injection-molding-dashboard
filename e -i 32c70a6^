@@ -1,0 +1,20 @@
+[33m9448133[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m 🛠️불량 원인 분포 그래프 폰트 크기 및 굵기 조정
+[33med62a77[m 🛠️ 불량 원인 분포 그래프 폰트 크기 및 굵기 조정
+[33mf47751c[m 한글 적용
+[33me50b9b8[m 간격 조정
+[33m2fafa54[m 간격 조정
+[33ma28b458[m 간격 조정
+[33m1c09587[m 간격 조정
+[33madd7782[m 간격 조정
+[33m466ed5a[m fix: 글자 크기 조정
+[33m6b6558d[m 🔧 한글 폰트 적용 최종 수정
+[33mb55eb1d[m 🔧 한글 폰트 적용 최종 수정
+[33m035e68f[m 🧩 한글 폰트 설정 수정
+[33m545902b[m 🧩 한글 폰트 설정 수정
+[33ma95d1c2[m 💬 한글 폰트 적용 및 그래프 수정
+[33m32c70a6[m 💬 한글 폰트 적용 및 그래프 수정
+[33m3436ea9[m ➕ Add xgboost to requirements
+[33m765aa3c[m 🧼 파일명 공백 제거 및 경로 수정
+[33m29a26ee[m 🔧 Fix path for Streamlit (woojin_logo.png)
+[33mc1d9470[m Added Dev Container Folder
+[33mbc52f60[m 🎉 최초 커밋

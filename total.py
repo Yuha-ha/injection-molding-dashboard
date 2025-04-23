@@ -4,6 +4,12 @@ def render() :
     import matplotlib.pyplot as plt
     import matplotlib
     import base64
+    import matplotlib.font_manager as fm
+
+    font_path = "fonts/NanumGothicCoding.ttf"  # 상대 경로
+    font_prop = fm.FontProperties(fname=font_path, size=16, weight='bold')
+    plt.rcParams['font.family'] = font_prop.get_name()
+    plt.rcParams['axes.unicode_minus'] = False
 
     # 🔹 제목 위 오른쪽에 홈 버튼 (한 줄 유지)
     col1, col2 = st.columns([9, 1])
@@ -24,10 +30,6 @@ def render() :
         if st.button("🏠 홈으로 돌아가기"):
             st.session_state.page = "home"
         st.markdown("</div>", unsafe_allow_html=True)
-
-    # ✅ 한글 폰트 깨짐 방지
-    matplotlib.rcParams['font.family'] = 'NanumGothic'
-    matplotlib.rcParams['axes.unicode_minus'] = False
 
     # ✅ 스타일 정의
     st.markdown("""
@@ -191,7 +193,7 @@ def render() :
         ax.axhline(filtered_df['ERR_FACT_QTY_TOTAL'].mean(), color="gray", linestyle="--", label="평균선")
         ax.set_xticks(tick_dates)
         ax.set_xticklabels([d.strftime('%Y-%m-%d') for d in tick_dates], rotation=45)
-        ax.legend()
+        ax.legend(prop=font_prop)
         st.pyplot(fig)
 
     with col7:
