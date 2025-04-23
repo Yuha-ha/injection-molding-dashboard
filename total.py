@@ -63,7 +63,7 @@ def render() :
             return base64.b64encode(f.read()).decode()
 
     # ✅ 로고 삽입
-    logo_base64 = get_base64_image("images\woojin_logo.png")
+    logo_base64 = get_base64_image("images/woojin_logo.png")
     st.markdown(f"""
         <div style="display: flex; justify-content: flex-start; align-items: center;">
             <img src="data:image/png;base64,{logo_base64}" style="height: 60px;">
